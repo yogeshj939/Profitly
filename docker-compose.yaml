@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: profitly-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: profitly_user
+      POSTGRES_PASSWORD: profitly_pass
+      POSTGRES_DB: profitly_db
+      TZ: Asia/Kolkata
+      POSTGRES_INITDB_ARGS: "--timezone=Asia/Kolkata"
+    ports:
+      - "5432:5432"
+    volumes:
+      - profitly_pgdata:/var/lib/postgresql/data
+
+volumes:
+  profitly_pgdata:
