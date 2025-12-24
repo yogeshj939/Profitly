@@ -14,12 +14,19 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        jdbc:
+          time_zone: Asia/Kolkata
+
+  security:
+    user:
+      name: admin
+      password: admin_pass
 
   flyway:
     enabled: true
     locations: classpath:db/migration
 
-jwt:
-  secret: ${PROFITLY_JWT_SECRET}
-  expirationMs: 86400000
-  tokenPrefix: Bearer
+logging:
+  level:
+    org:
+      flywaydb: DEBUG
